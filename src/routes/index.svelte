@@ -1,5 +1,7 @@
-<script context="module">
-  export async function load({ fetch }) {
+<script context="module" lang="ts">
+  import type { ErrorLoad } from "@sveltejs/kit";
+  export const load: ErrorLoad = async (props) => {
+    let { fetch } = props;
     const res = await fetch("https://api.spacex.land/graphql", {
       method: "POST",
       headers: {
@@ -31,11 +33,11 @@
       status: res.status,
       error: new Error(`Error fetching GraphQL data`),
     };
-  }
+  };
 </script>
 
-<script>
-  export let launches;
+<script lang="ts">
+  export let launches: any[];
 </script>
 
 <h1>SpaceX Launches</h1>
