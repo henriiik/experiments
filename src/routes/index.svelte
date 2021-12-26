@@ -1,9 +1,9 @@
 <script context="module">
   export async function load({ fetch }) {
-    const res = await fetch('https://api.spacex.land/graphql', {
-      method: 'POST',
+    const res = await fetch("https://api.spacex.land/graphql", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         query: `{
@@ -14,22 +14,22 @@
                     video_link
                 }
             }
-        }`
-      })
+        }`,
+      }),
     });
 
     if (res.ok) {
       const { data } = await res.json();
       return {
         props: {
-          launches: data.launchesPast
-        }
+          launches: data.launchesPast,
+        },
       };
     }
 
     return {
       status: res.status,
-      error: new Error(`Error fetching GraphQL data`)
+      error: new Error(`Error fetching GraphQL data`),
     };
   }
 </script>
