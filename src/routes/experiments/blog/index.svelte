@@ -1,4 +1,6 @@
 <script context="module" lang="ts">
+  export const prerender = true;
+
   import type { BlogPost } from "../../../lib/BlogPost";
   import * as a from "./posts/first_post.svelte";
   import * as b from "./posts/why_would_you_write_a_blog_with_svelte.svelte";
@@ -21,12 +23,6 @@
 </ul>
 
 <style>
-  h1 {
-    letter-spacing: -0.025em;
-  }
-  h2 {
-    font-size: 18px;
-  }
   ul {
     list-style: none;
     padding: 0;

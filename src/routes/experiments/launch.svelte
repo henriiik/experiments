@@ -91,12 +91,6 @@
 </ul>
 
 <style>
-  h1 {
-    letter-spacing: -0.025em;
-  }
-  h2 {
-    font-size: 18px;
-  }
   ul {
     list-style: none;
     padding: 0;
@@ -115,12 +109,5 @@
   .card-link {
     padding: 8px 24px;
     display: block;
-  }
-  .link {
-    transition: 0.15s text-decoration ease-in-out;
-    color: #0761d1;
-  }
-  .link:hover {
-    text-decoration: underline;
   }
 </style>

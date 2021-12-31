@@ -14,7 +14,15 @@
   ];
 </script>
 
-<h1>Experiments</h1>
+<h1>Henriiiks Experiments</h1>
+
+<h2>About</h2>
+<p>
+  Hello! My name is Henrik and this is apparently my website, and also where i
+  keep my experiments.
+</p>
+
+<h2>Experiments</h2>
 <ul>
   {#each experiments as experiment}
     <li>
@@ -25,28 +33,8 @@
     </li>
   {/each}
 </ul>
-<footer>
-  <p>
-    Created with <a
-      class="link"
-      target="_blank"
-      rel="noopener"
-      href="https://svelte.dev">SvelteKit</a
-    >
-    and deployed with
-    <a class="link" target="_blank" rel="noopener" href="https://vercel.com"
-      >▲ Vercel</a
-    >.
-  </p>
-</footer>
 
 <style>
-  h1 {
-    letter-spacing: -0.025em;
-  }
-  h2 {
-    font-size: 18px;
-  }
   ul {
     list-style: none;
     padding: 0;
@@ -65,12 +53,5 @@
   .card-link {
     padding: 8px 24px;
     display: block;
-  }
-  .link {
-    transition: 0.15s text-decoration ease-in-out;
-    color: #0761d1;
-  }
-  .link:hover {
-    text-decoration: underline;
   }
 </style>
