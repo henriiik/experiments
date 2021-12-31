@@ -1,18 +1,20 @@
 <script context="module" lang="ts">
   import type { ErrorLoad } from "@sveltejs/kit";
   import { LaunchResponse, unwrap } from "../lib/Launch";
-  import type { LaunchData } from "../lib/Launch";
+  import type { LaunchResponseData } from "../lib/Launch";
 
-  export const load: ErrorLoad<{}, { props: { launches: LaunchData[] } }> =
-    async (props) => {
-      let { fetch } = props;
-      const res = await fetch("https://api.spacex.land/graphql", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          query: `{
+  export const load: ErrorLoad<
+    {},
+    { props: { response: LaunchResponseData } }
+  > = async (props) => {
+    let { fetch } = props;
+    const res = await fetch("https://api.spacex.land/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: `{
             launchesPast(limit: 10) {
                 mission_name
                 launch_date_local
@@ -21,26 +23,29 @@
                 }
             }
         }`,
-        }),
-      });
+      }),
+    });
 
-      if (res.ok) {
-        const omg = await res.json().then(LaunchResponse.decode).then(unwrap);
-        return { props: { launches: omg.data.launchesPast } };
-      }
+    if (res.ok) {
+      const response = await res
+        .json()
+        .then(LaunchResponse.decode)
+        .then(unwrap);
+      return { props: { response } };
+    }
 
-      return {
-        status: res.status,
-        error: new Error(`Error fetching GraphQL data`),
-      };
+    return {
+      status: res.status,
+      error: new Error(`Error fetching GraphQL data`),
     };
+  };
 </script>
 
 <script lang="ts">
-  export let launches: LaunchData[];
+  export let response: LaunchResponseData;
 </script>
 
-<h1>SpaceX Launches</h1>
+<h1>SpaceX Launches With Types</h1>
 <p>
   This is an example <a
     class="link"
@@ -63,7 +68,7 @@
   >.
 </p>
 <ul>
-  {#each launches as launch}
+  {#each response.data.launchesPast as launch}
     <li>
       <a
         class="card-link"
@@ -71,7 +76,6 @@
         rel="noopener"
         href={launch.links.video_link}
       >
-        <!-- href={"launch.links.video_link"} -->
         <h2>{launch.mission_name}</h2>
         <p>{new Date(launch.launch_date_local).toLocaleString()}</p>
       </a>
