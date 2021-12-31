@@ -11,7 +11,7 @@ export const get: RequestHandler = async ({ params }) => {
   const dir = await readdir2("./src/routes/experiments/blog/posts");
 
   for (const entry of dir) {
-    const path = entry.replace(/.svelte$/, "");
+    const path = entry.replace(/\.svelte.*/, "");
     let split = path.replace(/_/g, " ").split("|");
     posts.push({ path, name: split[1], date: split[0] });
   }
