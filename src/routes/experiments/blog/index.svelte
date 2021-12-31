@@ -1,26 +1,26 @@
-<script lang="ts">
-  export let experiments = [
-    {
-      name: "Blog",
-      description: "A blog written in svelte.",
-      href: "./experiments/blog",
-    },
-    {
-      name: "Launch",
-      description:
-        "A modified version of the svelte kit example that is more type safe.",
-      href: "./experiments/launch",
-    },
-  ];
+<script context="module" lang="ts">
+  import type { ErrorLoad } from "@sveltejs/kit";
+  import type { BlogPost } from "./list";
+
+  export const load: ErrorLoad<{}, { props: { posts: BlogPost[] } }> = async ({
+    fetch,
+  }) => {
+    let props = await (await fetch("/experiments/blog/list")).json();
+    return { props };
+  };
 </script>
 
-<h1>Experiments</h1>
+<script lang="ts">
+  export let posts: BlogPost[];
+</script>
+
+<h1>Blog</h1>
 <ul>
-  {#each experiments as experiment}
+  {#each posts as post}
     <li>
-      <a class="card-link" href={experiment.href}>
-        <h2>{experiment.name}</h2>
-        <p>{experiment.description}</p>
+      <a class="card-link" href={`./blog/posts/${post.path}`}>
+        <h2>{post.name}</h2>
+        <p>{post.date}</p>
       </a>
     </li>
   {/each}
