@@ -14,7 +14,7 @@
   ];
 </script>
 
-<h1>Experiments</h1>
+<h1>Henksperiments!</h1>
 <ul>
   {#each experiments as experiment}
     <li>
