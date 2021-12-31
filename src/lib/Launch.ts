@@ -1,5 +1,5 @@
-import * as D from "io-ts/Decoder";
-import * as E from "fp-ts/Either";
+import * as D from "io-ts/lib/Decoder.js";
+import * as E from "fp-ts/lib/Either.js";
 
 export const Launch = D.struct({
   mission_name: D.string,
