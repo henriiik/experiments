@@ -1,14 +1,18 @@
 <script context="module" lang="ts">
   import type { ErrorLoad } from "@sveltejs/kit";
-  export const load: ErrorLoad = async (props) => {
-    let { fetch } = props;
-    const res = await fetch("https://api.spacex.land/graphql", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: `{
+  import { LaunchResponse, unwrap } from "../lib/Launch";
+  import type { LaunchData } from "../lib/Launch";
+
+  export const load: ErrorLoad<{}, { props: { launches: LaunchData[] } }> =
+    async (props) => {
+      let { fetch } = props;
+      const res = await fetch("https://api.spacex.land/graphql", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: `{
             launchesPast(limit: 10) {
                 mission_name
                 launch_date_local
@@ -17,27 +21,23 @@
                 }
             }
         }`,
-      }),
-    });
+        }),
+      });
 
-    if (res.ok) {
-      const { data } = await res.json();
+      if (res.ok) {
+        const omg = await res.json().then(LaunchResponse.decode).then(unwrap);
+        return { props: { launches: omg.data.launchesPast } };
+      }
+
       return {
-        props: {
-          launches: data.launchesPast,
-        },
+        status: res.status,
+        error: new Error(`Error fetching GraphQL data`),
       };
-    }
-
-    return {
-      status: res.status,
-      error: new Error(`Error fetching GraphQL data`),
     };
-  };
 </script>
 
 <script lang="ts">
-  export let launches: any[];
+  export let launches: LaunchData[];
 </script>
 
 <h1>SpaceX Launches</h1>
@@ -71,6 +71,7 @@
         rel="noopener"
         href={launch.links.video_link}
       >
+        <!-- href={"launch.links.video_link"} -->
         <h2>{launch.mission_name}</h2>
         <p>{new Date(launch.launch_date_local).toLocaleString()}</p>
       </a>
