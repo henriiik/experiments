@@ -2,10 +2,6 @@
 
 <footer>
   <p>
-    Created with <a target="_blank" rel="noopener" href="https://svelte.dev"
-      >SvelteKit</a
-    >
-    and deployed with
-    <a target="_blank" rel="noopener" href="https://vercel.com">▲ Vercel</a>.
+    <a href="/about">Created by henriiik</a>, <a href="/">go to root</a>.
   </p>
 </footer>

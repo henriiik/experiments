@@ -1,3 +1,7 @@
+<script context="module" lang="ts">
+  export const prerender = true;
+</script>
+
 <script lang="ts">
   export let experiments = [
     {
@@ -14,15 +18,7 @@
   ];
 </script>
 
-<h1>Henriiiks Experiments</h1>
-
-<h2>About</h2>
-<p>
-  Hello! My name is Henrik and this is apparently my website, and also where i
-  keep my experiments.
-</p>
-
-<h2>Experiments</h2>
+<h1>Experiments</h1>
 <ul>
   {#each experiments as experiment}
     <li>
