@@ -1,22 +1,22 @@
 <script context="module" lang="ts">
   export const prerender = true;
 
-  import type { BlogPost } from "../../../lib/BlogPost";
+  import { postUrl, type BlogPost } from "../../../lib/BlogPost";
   import * as a from "./posts/first_post.svelte";
   import * as b from "./posts/why_would_you_write_a_blog_with_svelte.svelte";
 
   export const posts: BlogPost[] = [a.meta, b.meta];
 
-  posts.sort((a, b) => b.date.getTime() - a.date.getTime());
+  posts.sort((a, b) => b.published.getTime() - a.published.getTime());
 </script>
 
 <h1>Blog</h1>
 <ul>
   {#each posts as post}
     <li>
-      <a class="card-link" href={`./blog/posts/${post.path}`}>
-        <h2>{post.name}</h2>
-        <p>{post.date.toLocaleString()}</p>
+      <a class="card-link" href={postUrl(post)}>
+        <h2>{post.title}</h2>
+        <p>{post.published.toLocaleString()}</p>
       </a>
     </li>
   {/each}

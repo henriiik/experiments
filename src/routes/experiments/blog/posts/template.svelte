@@ -4,11 +4,11 @@
   import type { BlogPost } from "../../../../lib/BlogPost";
 
   export const meta: BlogPost = {
-    date: new Date("2022-01-01T00:00:00.000Z"),
-    name: "Why would you look at a template?",
-    path: "template",
+    published: new Date("2022-01-01T00:00:00.000Z"),
+    title: "Why would you look at a template?",
+    slug: "template",
   };
 </script>
 
-<h1>{meta.name}</h1>
+<h1>{meta.title}</h1>
 <p>This is a template that can be copied, when a new post is desired.</p>

@@ -4,13 +4,13 @@
   import type { BlogPost } from "../../../../lib/BlogPost";
 
   export const meta: BlogPost = {
-    date: new Date("2021-12-31T10:39:00.000Z"),
-    name: "Why would you write a blog with Svelte?",
-    path: "why_would_you_write_a_blog_with_svelte",
+    published: new Date("2021-12-31T10:39:00.000Z"),
+    title: "Why would you write a blog with Svelte?",
+    slug: "why_would_you_write_a_blog_with_svelte",
   };
 </script>
 
-<h1>{meta.name}</h1>
+<h1>{meta.title}</h1>
 <p>I guess the first question should be why write a blog at all?</p>
 <p>
   I want to practice writing my thoughts down. It is easy to think your thoughts
