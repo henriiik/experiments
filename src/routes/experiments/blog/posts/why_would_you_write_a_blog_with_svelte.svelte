@@ -24,4 +24,9 @@
   framework" thing. Basically it svelte could be seen as a static stite
   generator but with more power and less convenience.
 </p>
-<p>I guess that is moslty one reason, the other reason is it seemd fun.</p>
+<p>I guess that is moslty one reason, the other reason is it seemed fun.</p>
+<p>
+  An advantage that is not uniqe to svelte, but rather any format where you can
+  write in your local text editor is that you can use all the editor shortcurts
+  you know, unlike if you are editing in some web-based UI.
+</p>
