@@ -12,7 +12,7 @@
     {
       name: "About",
       description: "information about this website and it's author.",
-      href: "./experiments/launch",
+      href: "./about",
     },
     {
       name: "Launch",
