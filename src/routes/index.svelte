@@ -5,9 +5,9 @@
 <script lang="ts">
   export let experiments = [
     {
-      name: "Blog",
+      name: "Words",
       description: "A blog written in svelte.",
-      href: "./experiments/blog",
+      href: "./experiments/words",
     },
     {
       name: "About",

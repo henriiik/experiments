@@ -1,13 +1,8 @@
 <script context="module" lang="ts">
   export const prerender = true;
 
-  import type { BlogPost } from "../../../../lib/BlogPost";
-
-  export const meta: BlogPost = {
-    published: new Date("2022-01-01T00:00:00.000Z"),
-    title: "Trying to try out the Pulumi Automation API",
-    slug: "pulumi_automation_the_first",
-  };
+  import { metaForSlug } from "./index.svelte";
+  export const meta = metaForSlug("pulumi_automation_the_first");
 </script>
 
 <h2>{meta.title}</h2>

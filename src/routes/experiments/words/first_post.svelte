@@ -1,13 +1,8 @@
 <script context="module" lang="ts">
   export const prerender = true;
 
-  import type { BlogPost } from "../../../../lib/BlogPost";
-
-  export const meta: BlogPost = {
-    published: new Date("2021-12-31T09:50:00.000Z"),
-    title: "First post!",
-    slug: "first_post",
-  };
+  import { metaForSlug } from "./index.svelte";
+  export const meta = metaForSlug("first_post");
 </script>
 
 <h2>{meta.title}</h2>
