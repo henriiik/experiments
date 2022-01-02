@@ -10,7 +10,7 @@
   };
 </script>
 
-<h1>{meta.title}</h1>
+<h2>{meta.title}</h2>
 <p>
   So i wanted to try out <a
     href="https://www.pulumi.com/docs/guides/automation-api/"
@@ -21,8 +21,7 @@
 </p>
 <p>So, after taking a look at the getting started guide, i dove right in.</p>
 <p>I creates a small library file with a super simple inline program</p>
-<code
-  ><pre>{`
+<pre>{`
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 
@@ -41,11 +40,9 @@ export async function up() {
   );
   return { name: stack.name };
 }
-`.trim()}</pre></code
->
+`.trim()}</pre>
 <p>And an endpoint that called the <b>up</b> function</p>
-<code
-  ><pre>{`
+<pre>{`
 import type { RequestHandler } from "@sveltejs/kit";
 import { up } from "../../../lib/pulumi/automation";
 
@@ -53,11 +50,9 @@ export const get: RequestHandler<{}, {}, { name: string }> = async (req) => {
   let body = await up();
   return { body };
 };
-`.trim()}</pre></code
->
+`.trim()}</pre>
 <p>Which I then called with curl</p>
-<code
-  ><pre>{`
+<pre>{`
 $ curl http://localhost:3000/experiments/pulumi/up
 Error: Failed to resolve entry for package "spdx-license-ids". The package may have incorrect main/module/exports specified in its package.json: Failed to resolve entry for package "spdx-license-ids". The package may have incorrect main/module/exports specified in its package.json.
     at packageEntryFailure (/Users/henke/Development/sveltekit-test/node_modules/vite/src/node/plugins/resolve.ts:766:9)
@@ -69,8 +64,7 @@ Error: Failed to resolve entry for package "spdx-license-ids". The package may h
     at Module.require (node:internal/modules/cjs/loader:1005:19)
     at require (node:internal/modules/cjs/helpers:102:18)
     at Object.<anonymous> (/Users/henke/Development/sveltekit-test/node_modules/spdx-expression-parse/scan.js:4:11)
-`.trim()}</pre></code
->
+`.trim()}</pre>
 <p>It did not work.</p>
 <p>
   A quick googling turned up that <a
@@ -94,12 +88,10 @@ Error: Failed to resolve entry for package "spdx-license-ids". The package may h
   the same way gets us where we want to go, and now the endpoint returns the name
   of the stack!
 </p>
-<code
-  ><pre>{`
+<pre>{`
 $ curl http://localhost:3000/experiments/pulumi/up
 {"name":"automation-test"}
-`.trim()}</pre></code
->
+`.trim()}</pre>
 <p>
   <a
     href="https://github.com/henriiik/spdx-license-ids/commit/3150c19020a5e09609b8475456038420baa7537c"
@@ -119,16 +111,13 @@ $ curl http://localhost:3000/experiments/pulumi/up
   >. "A piece of cake then" I thought and added some overrides to my
   <b>package.json</b>.
 </p>
-<code
-  ><pre>{`
+<pre>{`
 "overrides": {
   "spdx-license-ids": "git+https://github.com/henriiik/spdx-license-ids.git"
 },
-`.trim()}</pre></code
->
+`.trim()}</pre>
 <p>It did not work.</p>
-<code
-  ><pre>{`
+<pre>{`
 "dependencies": {
   /// ....
   "spdx-license-ids": "git+https://github.com/henriiik/spdx-license-ids.git"
@@ -136,8 +125,7 @@ $ curl http://localhost:3000/experiments/pulumi/up
 "overrides": {
   "spdx-license-ids": "$spdx-license-ids"
 },
-`.trim()}</pre></code
->
+`.trim()}</pre>
 <p>
   Adding <b>spdx-license-ids</b> as a dependency, and refering to it from
   <b>overrides</b> did work however. It is unclear if this is the intended behvior.

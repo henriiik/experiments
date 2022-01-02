@@ -6,53 +6,20 @@
   <link rel="icon" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="follow, index" />
-  <title>Henkes Experiments</title>
-  <meta content="Henkes Experiments with Svelte." name="description" />
-  <meta property="og:title" content="Henkes Experiments" />
+  <title>henke.fyi</title>
+  <meta content="henke.fyi" name="description" />
+  <meta property="og:title" content="henke.fyi" />
   <meta property="og:image" content="/twitter.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@vercel" />
-  <meta name="twitter:title" content="Henkes Experiments" />
-  <meta name="twitter:description" content="Henkes Experiments with Svelte." />
+  <meta name="twitter:site" content="@enhenrik" />
+  <meta name="twitter:title" content="henke.fyi" />
+  <meta name="twitter:description" content="henke.fyi" />
   <meta name="twitter:image" content="/twitter.png" />
   %svelte.head%
-
-  <style>
-    body {
-      font-family: "ui-sans-serif", "system-ui", "-apple-system",
-        "BlinkMacSystemFont", '"Segoe UI"', "Roboto", '"Helvetica Neue"', "Arial",
-        '"Noto Sans"', "sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"', '"Noto Color Emoji"';
-      background-color: #fafafa;
-      max-width: 650px;
-      margin: 32px auto;
-      padding: 0 16px;
-    }
-
-    p {
-      color: #666;
-      font-size: 14px;
-      line-height: 1.75;
-    }
-
-    a {
-      color: #0070f3;
-      text-decoration: none;
-    }
-
-    a[href^="http"] {
-      transition: 0.15s text-decoration ease-in-out;
-      color: #0761d1;
-    }
-
-    a[href^="http"]:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 
-<body>
-  <div id="svelte">%svelte.body%</div>
+<body class="prose prose-lg font-serif">
+  <div id="svelte" class="container mx-auto">%svelte.body%</div>
 </body>
 
 </html>

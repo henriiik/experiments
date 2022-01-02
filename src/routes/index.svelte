@@ -10,6 +10,11 @@
       href: "./experiments/blog",
     },
     {
+      name: "About",
+      description: "information about this website and it's author.",
+      href: "./experiments/launch",
+    },
+    {
       name: "Launch",
       description:
         "A modified version of the svelte kit example that is more type safe.",
@@ -18,36 +23,14 @@
   ];
 </script>
 
-<h1>Experiments</h1>
+<h2>Experiments</h2>
 <ul>
   {#each experiments as experiment}
     <li>
-      <a class="card-link" href={experiment.href}>
-        <h2>{experiment.name}</h2>
+      <a href={experiment.href}>
+        <h3>{experiment.name}</h3>
         <p>{experiment.description}</p>
       </a>
     </li>
   {/each}
 </ul>
-
-<style>
-  ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 32px;
-  }
-  li {
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    background-color: white;
-    transition: 0.15s box-shadow ease-in-out;
-  }
-  li:hover {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-  }
-  .card-link {
-    padding: 8px 24px;
-    display: block;
-  }
-</style>

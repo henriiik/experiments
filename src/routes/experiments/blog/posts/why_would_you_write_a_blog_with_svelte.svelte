@@ -10,7 +10,7 @@
   };
 </script>
 
-<h1>{meta.title}</h1>
+<h2>{meta.title}</h2>
 <p>I guess the first question should be why write a blog at all?</p>
 <p>
   I want to practice writing my thoughts down. It is easy to think your thoughts

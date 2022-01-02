@@ -1,4 +1,4 @@
-<h1>About</h1>
+<h2>About</h2>
 <p>
   Hello! My name is Henrik and this is apparently my website, and also where i
   keep my experiments.

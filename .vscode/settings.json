@@ -1,5 +1,5 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["sveltejs", "vercel"]
+  "cSpell.words": ["enhenrik", "henke", "sveltejs", "tailwindcss", "vercel"]
 }

@@ -10,6 +10,6 @@
   };
 </script>
 
-<h1>{meta.title}</h1>
+<h2>{meta.title}</h2>
 <p>This is the first post.</p>
 <p>It's good to have at least two posts if you want to make a list.</p>

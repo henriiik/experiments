@@ -1,7 +1,7 @@
-<slot />
+<script lang="ts">
+  import "../app.css";
+</script>
 
-<footer>
-  <p>
-    <a href="/about">Created by henriiik</a>, <a href="/">go to root</a>.
-  </p>
-</footer>
+<a href="/"><h1 class="pt-4">henke.fyi</h1></a>
+
+<slot />

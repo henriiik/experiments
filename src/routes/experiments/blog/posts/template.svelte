@@ -10,5 +10,5 @@
   };
 </script>
 
-<h1>{meta.title}</h1>
+<h2>{meta.title}</h2>
 <p>This is a template that can be copied, when a new post is desired.</p>

@@ -11,36 +11,14 @@
   posts.sort((a, b) => b.published.getTime() - a.published.getTime());
 </script>
 
-<h1>Blog</h1>
+<h2>Blog</h2>
 <ul>
   {#each posts as post}
     <li>
       <a class="card-link" href={postUrl(post)}>
-        <h2>{post.title}</h2>
+        <h3>{post.title}</h3>
         <p>{post.published.toLocaleString()}</p>
       </a>
     </li>
   {/each}
 </ul>
-
-<style>
-  ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 32px;
-  }
-  li {
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    background-color: white;
-    transition: 0.15s box-shadow ease-in-out;
-  }
-  li:hover {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-  }
-  .card-link {
-    padding: 8px 24px;
-    display: block;
-  }
-</style>

@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
   import type { ErrorLoad } from "@sveltejs/kit";
-  import { LaunchResponse, unwrap } from "../../lib/Launch";
-  import type { LaunchResponseData } from "../../lib/Launch";
+  import { LaunchResponse, unwrap } from "../../../lib/Launch";
+  import type { LaunchResponseData } from "../../../lib/Launch";
 
   export const load: ErrorLoad<
     {},
@@ -45,29 +45,21 @@
   export let response: LaunchResponseData;
 </script>
 
-<h1>SpaceX Launches With Types</h1>
+<h2>SpaceX Launches With Types</h2>
 <p>
   This is the example <a
-    class="link"
     target="_blank"
     rel="noopener"
     href="https://svelte.dev">SvelteKit</a
   >
   application fetching GraphQL data from the public
-  <a
-    class="link"
-    target="_blank"
-    rel="noopener"
-    href="https://api.spacex.land/graphql">SpaceX API</a
+  <a target="_blank" rel="noopener" href="https://api.spacex.land/graphql"
+    >SpaceX API</a
   >, but modified to be more type safe with
-  <a
-    class="link"
-    target="_blank"
-    rel="noopener"
-    href="https://github.com/gcanti/io-ts">io-ts</a
+  <a target="_blank" rel="noopener" href="https://github.com/gcanti/io-ts"
+    >io-ts</a
   >. View source on
   <a
-    class="link"
     target="_blank"
     rel="noopener"
     href="https://github.com/henriiik/sveltekit-test/blob/main/src/routes/experiments/launch.svelte"
@@ -77,37 +69,10 @@
 <ul>
   {#each response.data.launchesPast as launch}
     <li>
-      <a
-        class="card-link"
-        target="_blank"
-        rel="noopener"
-        href={launch.links.video_link}
-      >
-        <h2>{launch.mission_name}</h2>
+      <a target="_blank" rel="noopener" href={launch.links.video_link}>
+        <h3>{launch.mission_name}</h3>
         <p>{new Date(launch.launch_date_local).toLocaleString()}</p>
       </a>
     </li>
   {/each}
 </ul>
-
-<style>
-  ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 32px;
-  }
-  li {
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    background-color: white;
-    transition: 0.15s box-shadow ease-in-out;
-  }
-  li:hover {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-  }
-  .card-link {
-    padding: 8px 24px;
-    display: block;
-  }
-</style>
