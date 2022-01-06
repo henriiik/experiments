@@ -1,9 +1,16 @@
 FROM ubuntu
-# FROM alpine
 
-# RUN apk --no-cache add zsh git curl sudo coreutils bash grep dirmngr gpg gawk
+ENV LANG C.UTF-8
+
 RUN apt-get update \
-        && apt-get install -y zsh git curl dirmngr gpg gawk \
+        && apt-get install -y \
+        curl \
+        dirmngr \
+        gawk \
+        git \
+        gpg \
+        sudo \
+        zsh \
         && rm -rf /var/lib/apt/lists/* \
         ;
 
@@ -11,10 +18,15 @@ ARG USER=henke
 ENV HOME /home/$USER
 
 RUN adduser --shell /bin/zsh $USER \
-        && usermod -aG sudo $USER \
+        && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
+        && chmod 0440 /etc/sudoers.d/$USER \
         ;
 
 USER $USER
 WORKDIR $HOME
+RUN echo '# disable zsh-newuser-install' > .zshrc
 
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
+COPY ./install-asdf.sh ./install-asdf.sh
+COPY ./install-deps.sh ./install-deps.sh
+
+RUN ./install-asdf.sh
