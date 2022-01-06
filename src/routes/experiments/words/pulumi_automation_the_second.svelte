@@ -1,13 +1,14 @@
 <script context="module" lang="ts">
   export const prerender = true;
 
+  import { postUrl } from "../../../lib/words";
   import { metaForSlug } from "./index.svelte";
   export const meta = metaForSlug("pulumi_automation_the_second");
 </script>
 
 <h2>{meta.title}</h2>
 <p>
-  So, <a href="../pulumi_automation_the_second"
+  So, <a href={postUrl("pulumi_automation_the_first")}
     >the last time we tried to try out the Pulumi Automation API</a
   >
   it ended with a long
