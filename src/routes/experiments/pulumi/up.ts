@@ -1,7 +1,7 @@
-import type { RequestHandler } from "@sveltejs/kit";
-import { up } from "../../../lib/pulumi/automation";
+import { handler } from "../../../lib/endpoint";
+import { up, type UpResponse } from "../../../lib/pulumi/automation";
 
-export const get: RequestHandler<{}, {}, { name: string }> = async (req) => {
+export const get = handler<UpResponse>(async (req) => {
   let body = await up();
   return { body };
-};
+});
