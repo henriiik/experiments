@@ -50,15 +50,15 @@ export const get: RequestHandler<{}, {}, { name: string }> = async (req) => {
 <pre>{`
 $ curl http://localhost:3000/experiments/pulumi/up
 Error: Failed to resolve entry for package "spdx-license-ids". The package may have incorrect main/module/exports specified in its package.json: Failed to resolve entry for package "spdx-license-ids". The package may have incorrect main/module/exports specified in its package.json.
-    at packageEntryFailure (/Users/henke/Development/sveltekit-test/node_modules/vite/src/node/plugins/resolve.ts:766:9)
-    at resolvePackageEntry (/Users/henke/Development/sveltekit-test/node_modules/vite/src/node/plugins/resolve.ts:761:5)
-    at tryNodeResolve (/Users/henke/Development/sveltekit-test/node_modules/vite/src/node/plugins/resolve.ts:539:16)
-    at viteResolve (/Users/henke/Development/sveltekit-test/node_modules/vite/src/node/ssr/ssrModuleLoader.ts:218:22)
-    at Function.<anonymous> (/Users/henke/Development/sveltekit-test/node_modules/vite/src/node/ssr/ssrModuleLoader.ts:238:16)
+    at packageEntryFailure (/Users/henke/Development/experiments/node_modules/vite/src/node/plugins/resolve.ts:766:9)
+    at resolvePackageEntry (/Users/henke/Development/experiments/node_modules/vite/src/node/plugins/resolve.ts:761:5)
+    at tryNodeResolve (/Users/henke/Development/experiments/node_modules/vite/src/node/plugins/resolve.ts:539:16)
+    at viteResolve (/Users/henke/Development/experiments/node_modules/vite/src/node/ssr/ssrModuleLoader.ts:218:22)
+    at Function.<anonymous> (/Users/henke/Development/experiments/node_modules/vite/src/node/ssr/ssrModuleLoader.ts:238:16)
     at Function.Module._load (node:internal/modules/cjs/loader:778:27)
     at Module.require (node:internal/modules/cjs/loader:1005:19)
     at require (node:internal/modules/cjs/helpers:102:18)
-    at Object.<anonymous> (/Users/henke/Development/sveltekit-test/node_modules/spdx-expression-parse/scan.js:4:11)
+    at Object.<anonymous> (/Users/henke/Development/experiments/node_modules/spdx-expression-parse/scan.js:4:11)
 `.trim()}</pre>
 <p>It did not work.</p>
 <p>

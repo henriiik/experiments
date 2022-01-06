@@ -62,7 +62,7 @@
   <a
     target="_blank"
     rel="noopener"
-    href="https://github.com/henriiik/sveltekit-test/blob/main/src/routes/experiments/launch.svelte"
+    href="https://github.com/henriiik/experiments/blob/main/src/routes/experiments/launch.svelte"
     >GitHub</a
   >.
 </p>
