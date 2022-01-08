@@ -1,0 +1,26 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+  "name": "asdf",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // Set *default* container specific settings.json values on container create.
+  // "settings": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  "postStartCommand": "bash ~/install-deps.sh",
+
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "henriiik.vscode-sort",
+    "ms-vscode.typescript-javascript-grammar",
+    "streetsidesoftware.code-spell-checker",
+    "svelte.svelte-vscode",
+    "wmaurer.change-case"
+  ]
+}

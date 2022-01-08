@@ -3,6 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "svelte-kit dev",
+    "aws-dev": "aws-vault exec codespace -- svelte-kit dev",
     "build": "svelte-kit build --verbose",
     "preview": "svelte-kit preview"
   },

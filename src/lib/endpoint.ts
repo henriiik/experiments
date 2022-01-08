@@ -25,6 +25,7 @@ export function handler<Body extends JSONString>(
     try {
       return await inner(req);
     } catch (e) {
+      console.error(e);
       return {
         status: 500,
         body: { error: `${e}` },
