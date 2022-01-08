@@ -15,6 +15,8 @@ export type UpResponse = { name: string; preview: pulumi.automation.OpMap };
 export async function up(): Promise<UpResponse> {
   if (!process.env.AWS_ACCESS_KEY_ID) {
     throw Error("AWS_ACCESS_KEY_ID not set up");
+  } else if (!process.env.PULUMI_ACCESS_TOKEN) {
+    throw Error("PULUMI_ACCESS_TOKEN not set up");
   }
 
   console.log("getting stack..");
