@@ -2,6 +2,8 @@
 
 set -xe;
 
+cp ./.tool-versions ~/.tool-versions
+
 . ~/.asdf/asdf.sh
 
 asdf install
