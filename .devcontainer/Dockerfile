@@ -20,13 +20,14 @@ ARG USER=henke
 ENV HOME /home/$USER
 
 RUN adduser --shell /bin/zsh $USER \
+        && echo '# disable zsh-newuser-install' > $HOME/.zshrc \
+        && chown $USER:$USER $HOME/.zshrc \
         && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER \
         && chmod 0440 /etc/sudoers.d/$USER \
         ;
 
 USER $USER
 WORKDIR $HOME
-RUN echo '# disable zsh-newuser-install' > .zshrc
 
 COPY ./install-asdf.sh ./install-asdf.sh
 COPY ./install-deps.sh ./install-deps.sh
