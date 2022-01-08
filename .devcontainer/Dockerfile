@@ -11,6 +11,8 @@ RUN apt-get update \
         gpg \
         sudo \
         zsh \
+        tar \
+        unzip \
         && rm -rf /var/lib/apt/lists/* \
         ;
 

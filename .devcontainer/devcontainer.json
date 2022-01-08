@@ -1,25 +1,26 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.208.0/containers/typescript-node
+// For format details, see https://aka.ms/devcontainer.json.
 {
-	"name": "asdf",
-	"build": {
-		"dockerfile": "Dockerfile",
-	},
+  "name": "asdf",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
 
-	// Set *default* container specific settings.json values on container create.
-	// "settings": {},
+  // Set *default* container specific settings.json values on container create.
+  // "settings": {},
 
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
 
-	// Add the IDs of extensions you want installed when the container is created.
-	// "extensions": [
-	// 	"dbaeumer.vscode-eslint"
-	// ],
+  "postStartCommand": "bash ~/install-deps.sh",
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "asdf install",
-
-	"postStartCommand": "bash ~/install-deps.sh"
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "henriiik.vscode-sort",
+    "ms-vscode.typescript-javascript-grammar",
+    "streetsidesoftware.code-spell-checker",
+    "svelte.svelte-vscode",
+    "wmaurer.change-case"
+  ]
 }
