@@ -6,12 +6,12 @@
   export let experiments = [
     {
       name: "Words",
-      description: "A blog written in svelte.",
+      description: "Words about things.",
       href: "./experiments/words",
     },
     {
       name: "About",
-      description: "information about this website and it's author.",
+      description: "Information about this website and it's author.",
       href: "./about",
     },
     {
