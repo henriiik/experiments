@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /experiments/launch/
+
+Sitemap: http://www.example.com/sitemap.xml
