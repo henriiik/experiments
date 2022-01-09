@@ -5,6 +5,7 @@
     "dev": "svelte-kit dev",
     "aws-dev": "aws-vault exec codespace -- svelte-kit dev",
     "build": "svelte-kit build --verbose",
+    "postbuild": "svelte-sitemap --out-dir .vercel_build_output/static --domain https://www.henke.fyi",
     "preview": "svelte-kit preview"
   },
   "devDependencies": {
@@ -16,6 +17,7 @@
     "postcss": "^8.4.5",
     "svelte": "^3.44.3",
     "svelte-preprocess": "^4.10.1",
+    "svelte-sitemap": "^2.2.0",
     "tailwindcss": "^3.0.8",
     "typescript": "^4.5.4"
   },
